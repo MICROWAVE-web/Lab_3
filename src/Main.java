@@ -1,4 +1,3 @@
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,8 +8,15 @@ public class Main {
 
         if (orders.isEmpty()) {
             // Если данных нет, создаем новые заказы по умолчанию
+
+            // Вывод количества авторов
+            System.out.println("Total Authors: " + Author.getAuthorCount());
+
             Author author1 = new Author(1, "Л. Н. Толстой", "Русский");
             Author author2 = new Author(2, "Харуки Мураками", "Японец");
+
+            // Вывод количества созданных авторов
+            System.out.println("Total Authors: " + Author.getAuthorCount());
 
             Book book1 = new Book(1, "Война и мир", author1, 1869);
             Book book2 = new Book(2, "Токийские легенды", author2, 2005);
