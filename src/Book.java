@@ -42,4 +42,10 @@ class Book {
     public String getTitle() {
         return title;
     }
+
+    // Метод для форматирования заголовка книги (ЗАГЛАВНЫЕ БУКВЫ)
+    public void formatTitle() {
+        this.title = this.title.toUpperCase();
+        System.out.println("Formatted Title: " + this.title);
+    }
 }

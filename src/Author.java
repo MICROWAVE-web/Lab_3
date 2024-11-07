@@ -41,4 +41,9 @@ class Author {
     public static int getAuthorCount() {
         return authorCount;
     }
+
+    // Метод для демонстрации оператора this
+    public void setName(String name) {
+        this.name = name;
+    }
 }
