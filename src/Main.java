@@ -8,7 +8,6 @@ public class Main {
                 new Author(2, "Харуки Мураками", "Японец"),
                 new Author(3, "Джейн Остин", "Англичанка")
         };
-        System.out.println("Список авторов:");
         for (Author author : authors) {
             author.printAuthor();
         }
