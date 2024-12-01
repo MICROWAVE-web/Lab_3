@@ -1,7 +1,8 @@
 
 public class Main {
     public static void main(String[] args) {
-        // 1) Пример работы с массивом объектов Author
+        // Пример работы с массивом объектов Author
+        System.out.println("Список авторов (одномерный массив):");
         Author[] authors = {
                 new Author(1, "Л. Н. Толстой", "Русский"),
                 new Author(2, "Харуки Мураками", "Японец"),
@@ -12,20 +13,20 @@ public class Main {
             author.printAuthor();
         }
 
-        // 2) Демонстрация возврата целочисленного значения
-        System.out.println("Кол-во созданных авторов: " + Author.getAuthorCount());
+        // Пример работы с двумерным массивом объектов Book *****
+        Book[][] library = new Book[2][2]; // Двумерный массив 2x2
+        library[0][0] = new Book(1, "Война и мир", authors[0], 1869);
+        library[0][1] = new Book(2, "Норвежский лес", authors[1], 1987);
+        library[1][0] = new Book(3, "Гордость и предубеждение", authors[2], 1813);
+        library[1][1] = new Book(4, "Анна Каренина", authors[0], 1877);
 
-        // Создание объектов
-        Author author = new Author(1, "Л. Н. Толстой", "Русский");
-
-        Book book = new Book(1, "Война и мир", author, 1869);
-
-        // 3) Демонстрация метода this
-        author.setName("A. Н. Толстой"); // метод this
-        author.printAuthor();
-
-        // 4) Демонстрация обработки строк
-        book.printBook();
-        book.formatTitle();  // Обработка
+        System.out.println("Список книг (двумерный массив):");
+        for (int i = 0; i < library.length; i++) {
+            for (int j = 0; j < library[i].length; j++) {
+                System.out.println("Книга [" + i + "][" + j + "]:");
+                library[i][j].printBook();
+                System.out.println();
+            }
+        }
     }
 }
