@@ -23,7 +23,7 @@ public class Main {
         }
 
         // Пример использования шаблона класса
-        GenericLibrary<Book> library = new GenericLibrary<>();
+        LibraryContainer<Book> library = new LibraryContainer<>();
         library.addItem(book);
         library.displayItems();
     }

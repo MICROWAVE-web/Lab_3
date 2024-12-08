@@ -1,13 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
-
-public class LibraryContainer {
-}
-
-class GenericLibrary<T extends LibraryEntity> {
+class LibraryContainer<T extends LibraryEntity> {
     private final List<T> items;
 
-    public GenericLibrary() {
+    public LibraryContainer() {
         items = new ArrayList<>();
     }
 
