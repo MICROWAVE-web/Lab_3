@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 class Author {
-    private int id;
-    private String name;
-    private String nationality;
+    int id;
+    protected String name; // Использование protected
+    String nationality;
 
     // Статическая переменная для отслеживания количества объектов
     private static int authorCount = 0;
@@ -45,5 +45,20 @@ class Author {
     // Метод для демонстрации оператора this
     public void setName(String name) {
         this.name = name;
+    }
+}
+
+// Производный класс SpecialAuthor
+class SpecialAuthor extends Author {
+    private final String award;
+
+    public SpecialAuthor(int id, String name, String nationality, String award) {
+        super(id, name, nationality); // Вызов конструктора базового класса
+        this.award = award;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Award: " + award;
     }
 }

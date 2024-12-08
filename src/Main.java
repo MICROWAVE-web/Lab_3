@@ -1,31 +1,30 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // Пример работы с массивом объектов Author
-        System.out.println("Список авторов (одномерный массив):");
-        Author[] authors = {
-                new Author(1, "Л. Н. Толстой", "Русский"),
-                new Author(2, "Харуки Мураками", "Японец"),
-                new Author(3, "Джейн Остин", "Англичанка")
-        };
-        for (Author author : authors) {
-            author.printAuthor();
+        // Пример использования производного класса
+        SpecialAuthor sa = new SpecialAuthor(1, "Leo Tolstoy", "Russian", "War and Peace");
+        System.out.println(sa);
+
+        // Пример использования абстрактного класса и интерфейса
+        Book book = new Book(1, "Anna Karenina", new Author(1, "Leo Tolstoy", "Russian"), 1877);
+        System.out.println(book);
+
+        // Пример использования клонирования
+        try {
+            Book clonedBook = (Book) book.clone();
+            System.out.println("Cloned Book: " + clonedBook);
+
+            Book deepClonedBook = book.deepClone();
+            System.out.println("Deep Cloned Book: " + deepClonedBook);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
         }
 
-        // Пример работы с двумерным массивом объектов Book *****
-        Book[][] library = new Book[2][2]; // Двумерный массив 2x2
-        library[0][0] = new Book(1, "Война и мир", authors[0], 1869);
-        library[0][1] = new Book(2, "Норвежский лес", authors[1], 1987);
-        library[1][0] = new Book(3, "Гордость и предубеждение", authors[2], 1813);
-        library[1][1] = new Book(4, "Анна Каренина", authors[0], 1877);
-
-        System.out.println("Список книг (двумерный массив):");
-        for (int i = 0; i < library.length; i++) {
-            for (int j = 0; j < library[i].length; j++) {
-                System.out.println("Книга [" + i + "][" + j + "]:");
-                library[i][j].printBook();
-                System.out.println();
-            }
-        }
+        // Пример использования шаблона класса
+        GenericLibrary<Book> library = new GenericLibrary<>();
+        library.addItem(book);
+        library.displayItems();
     }
 }

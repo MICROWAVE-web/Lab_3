@@ -1,23 +1,36 @@
 import java.util.Scanner;
 
-class Book {
-    private int id;
+class Book extends LibraryEntity implements Cloneable {
     private String title;
-    private Author author;
+    private final Author author;
     private int year;
 
-    public Book() {
-        this.id = 0;
-        this.title = "";
-        this.author = new Author();
-        this.year = 0;
-    }
-
     public Book(int id, String title, Author author, int year) {
-        this.id = id;
+        super(id); // Вызов конструктора абстрактного класса
         this.title = title;
         this.author = author;
         this.year = year;
+    }
+
+    @Override
+    public String getDetails() {
+        return "Book ID: " + super.getId() + ", Title: " + title + ", Author: " + author.toString() + ", Year: " + year;
+    }
+
+    @Override
+    public String toString() {
+        return getDetails();
+    }
+
+    // Мелкое клонирование
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    // Глубокое клонирование
+    public Book deepClone() {
+        return new Book(getId(), title, new Author(author.id, author.name, author.nationality), year);
     }
 
     public static void inputBook(Book book) {
