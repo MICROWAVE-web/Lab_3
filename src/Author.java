@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Author {
+class Author extends LibraryEntity {
     int id;
     protected String name; // Использование protected
     String nationality;
@@ -9,6 +9,7 @@ class Author {
     private static int authorCount = 0;
 
     public Author() {
+        super(0, "");
         this.id = 0;
         this.name = "";
         this.nationality = "";
@@ -16,6 +17,7 @@ class Author {
     }
 
     public Author(int id, String name, String nationality) {
+        super(id, name);
         this.id = id;
         this.name = name;
         this.nationality = nationality;
@@ -45,6 +47,11 @@ class Author {
     // Метод для демонстрации оператора this
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String getDetails() {
+        return "Author ID: " + id + "\nName: " + name + "\nNationality: " + nationality;
     }
 }
 

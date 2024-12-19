@@ -1,19 +1,33 @@
-import java.util.ArrayList;
-import java.util.List;
-class LibraryContainer<T extends LibraryEntity> {
-    private final List<T> items;
+import java.util.*;
+// Контейнер Library
+// Контейнер Library
+class Library {
+    private List<LibraryEntity> entities;
 
-    public LibraryContainer() {
-        items = new ArrayList<>();
+    public Library() {
+        this.entities = new ArrayList<>();
     }
 
-    public void addItem(T item) {
-        items.add(item);
+    public void addEntity(LibraryEntity entity) {
+        entities.add(entity);
     }
 
-    public void displayItems() {
-        for (T item : items) {
-            System.out.println(item.getDetails());
+    public void printAllEntities() {
+        for (LibraryEntity entity : entities) {
+            System.out.println(entity);
         }
+    }
+
+    public void sortByName() {
+        entities.sort(Comparator.comparing(LibraryEntity::getName));
+    }
+
+    public LibraryEntity searchById(int id) {
+        for (LibraryEntity entity : entities) {
+            if (entity.getId() == id) {
+                return entity;
+            }
+        }
+        return null;
     }
 }

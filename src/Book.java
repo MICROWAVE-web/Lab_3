@@ -6,7 +6,7 @@ class Book extends LibraryEntity implements Cloneable {
     private int year;
 
     public Book(int id, String title, Author author, int year) {
-        super(id); // Вызов конструктора абстрактного класса
+        super(id, title); // Вызов конструктора абстрактного класса
         this.title = title;
         this.author = author;
         this.year = year;
