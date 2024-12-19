@@ -2,7 +2,7 @@ import java.util.*;
 // Контейнер Library
 // Контейнер Library
 class Library {
-    private List<LibraryEntity> entities;
+    private final List<LibraryEntity> entities;
 
     public Library() {
         this.entities = new ArrayList<>();

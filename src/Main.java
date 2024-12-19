@@ -5,11 +5,12 @@ public class Main {
     public static void main(String[] args) {
         Library library = new Library();
 
-        // Добавление объектов в контейнер
-        Author author1 = new Author(1, "Leo Tolstoy", "Russian");
-        Book book1 = new Book(2, "War and Peace", author1, 1869);
-        Author author2 = new Author(3, "Jane Austen", "English");
-        Book book2 = new Book(4, "Pride and Prejudice", author2, 1813);
+        // Добавление объектов в контейнерЫ
+        Author author1 = new Author(1, "Лев Толстой", "Русский");
+        Book book1 = new Book(2, "Война и мир", author1, 1869);
+        Author author2 = new Author(3, "Джейн Остин", "Англичанка");
+        Book book2 = new Book(4, "Гордость и предубеждение", author2, 1813);
+
         library.addEntity(author1);
         library.addEntity(book1);
         library.addEntity(author2);
